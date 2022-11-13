@@ -86,7 +86,7 @@ int main() {
 
 ## DSA (Medium)
 
-### 1) _Minimum Division of Groups_
+### 1) _Popular YouTube Creators_
 
 **Approach**: We have 3 arrays of creators, ids and views. Create three new arrays, to store unique creators, their popularity and the id of most seen video. Loop over the first three arrays to fill the values. Now pick out the indexes of popularity array which are highest (can be multiple if equal) into a vector. Use the vector to create a new 2d array named `answers` and save the creator name and views of maximum viewed video respectively. At last display it.
 
