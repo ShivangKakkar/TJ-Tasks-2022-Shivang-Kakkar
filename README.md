@@ -160,6 +160,50 @@ int main() {
 
 ---
 
+### 5) _Negative-Positive Existential Crisis_
+
+**Approach**: Sort the array. Start a backward for loop on the array so that the maximum number comes first. Then start another (nested) for loop to check if the number's negative exists in the array.
+
+**Code**:
+
+```
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "n = ";
+    cin >> n;
+    int arr[n];
+    cout << "Elements of array: ";
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    sort(arr, arr+n);
+    int num = -1;
+    for (int i = n-1; i >= 0; i--) {
+        int pos = arr[i];
+        for (int j = 0; j < n; j++) {
+            int neg = arr[j];
+            if (pos != neg && abs(neg) == pos) {
+                num = pos;
+                break;
+            }
+        }
+        if (num != -1) break;
+    }
+    cout << num;
+}
+```
+
+**Screenshots**:
+
+![Screenshot 1](images/easy_5_1st.png)
+![Screenshot 2](images/easy_5_2nd.png)
+![Screenshot 3](images/easy_5_3rd.png)
+
+---
+
 ## DSA (Medium)
 
 ### 1) _Popular YouTube Creators_
