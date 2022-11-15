@@ -86,6 +86,80 @@ int main() {
 
 ---
 
+### 3) _Are there common factors?_
+
+**Approach**: Create a variable (let `s`) and set it's value to the lower number. Also create another variable to count factors. Use a for loop to iterate from 1 to `s` and see if the remainder of the division of both a and b with the iterator is 0 or not. Keep adding to the `factors` variable if they are divisble else continue.
+
+**Code**:
+
+```
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter a: ";
+    cin >> a;
+    cout << "Enter b: ";
+    cin >> b;
+    int lower = a < b ? a : b;
+    int factors = 0;
+    for (int i = 1; i <= lower; i++) {
+        if (a % i == 0 && b % i == 0) factors++;
+    }
+    cout << factors;
+}
+```
+
+**Screenshots**:
+
+![Screenshot 1](images/easy_3_1st.png)
+![Screenshot 2](images/easy_3_2nd.png)
+
+---
+
+### 4) _Total Cuts_
+
+**Approach**: Create a variable `cuts` to keep track of total cuts. Then start a for loop to try out all possible cuts. Create 2 variables to store value of largest number in left part and smallest number in right part of the cut. Use another for loop (nested) to get the correct value of these variable. Get their sum and compare with the `k` provided at beginning.
+
+**Code**:
+
+```
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, k;
+    cout << "n = ";
+    cin >> n;
+    cout << "k = ";
+    cin >> k;
+    int arr[n];
+    cout << "Elements of array: ";
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    int cuts = 0;
+    for (int i = 0; i < n-1; i++) {
+        int min = arr[n-1], max = arr[0];
+        for (int j = 1; j < n-1; j++) {
+            if (j <= i && arr[j] > max) max = arr[j];
+            else if (j > i && arr[j] < min) min = arr[j];
+        }
+        if (max + min >= k) cuts++;
+    }
+    cout << cuts;
+}
+```
+
+**Screenshots**:
+
+![Screenshot 1](images/easy_4_1st.png)
+![Screenshot 2](images/easy_4_2nd.png)
+![Screenshot 3](images/easy_4_3rd.png)
+
+---
+
 ## DSA (Medium)
 
 ### 1) _Popular YouTube Creators_
